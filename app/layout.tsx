@@ -1,9 +1,8 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
-
 import { Providers } from "./providers";
-
+import { Toaster } from "react-hot-toast";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
@@ -46,6 +45,7 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
+        <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col gap-20 overflow-hidden">
             <Navbar />

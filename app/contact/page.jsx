@@ -1,11 +1,50 @@
+"use client"
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
+import emailjs from '@emailjs/browser';
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function Contact() {
+  const [data, setData] = useState({
+    username: '',
+    email: '',
+    message: ''
+  })
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prev) => ({...prev, [name]: value }))
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const templateParams = {
+      to_name: 'Dipali Lalu',
+      from_name: data.username,
+      from_email: data.email,
+      message: data.message
+    };
+
+    emailjs
+    .send(
+      process.env.NEXT_PUBLIC_SERVICE_ID, 
+      process.env.NEXT_PUBLIC_TEMPLATE_ID, 
+      templateParams, 
+      process.env.NEXT_PUBLIC_PUBLIC_KEY
+    ).then(
+        (response) => {
+         toast.success('Message sent successfully!');
+          setData({ username: '', email: '', message: '' });
+        },
+        (err) => {
+         toast.error('Failed to send message. Try again later.',err)
+        },
+      );
+  }
+
   return (
     <section className="flex gap-40 flex-col md:flex-row md:p-5 p-2 lg:gap-40 lg:p-20 md:gap-10" id="contact">
       <ShineBorder
@@ -21,46 +60,57 @@ export default function Contact() {
           <div className="jetbrains-mono">
             We can do so much together. Let&apos;s talk.
           </div>
-          <Input
-            label="Full Name"
-            labelPlacement="inside"
-            type="text"
-            isRequired
-            variant="underlined"
-            classNames={{
-              input: "bg-transparent",
-              inputWrapper: "bg-transparent",
-            }}
-          />
-          <Input
-            label="Email Address"
-            labelPlacement="inside"
-            type="email"
-            isRequired
-            variant="underlined"
-            classNames={{
-              input: "bg-transparent",
-              inputWrapper: "bg-transparent",
-            }}
-          />
-          <Input
-            label="Enter your description"
-            labelPlacement="inside"
-            type="text"
-            isRequired
-            variant="underlined"
-            classNames={{
-              input: "bg-transparent",
-              inputWrapper: "bg-transparent",
-            }}
-          />
-          <Button
-            color="primary"
-            type="submit"
-            className="w-min bg-blue-600 text-white"
-          >
-            Send Message
-          </Button>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <Input
+              label="Full Name"
+              labelPlacement="inside"
+              type="text"
+              isRequired
+              variant="underlined"
+              name="username"
+              value={data.username}
+              onChange={handleChange}
+              classNames={{
+                input: "bg-transparent",
+                inputWrapper: "bg-transparent",
+              }}
+            />
+            <Input
+              label="Email Address"
+              labelPlacement="inside"
+              type="email"
+              isRequired
+              variant="underlined"
+              name="email"
+              value={data.email}
+              onChange={handleChange}
+              classNames={{
+                input: "bg-transparent",
+                inputWrapper: "bg-transparent",
+              }}
+            />
+            <Input
+              label="Enter your description"
+              labelPlacement="inside"
+              type="text"
+              isRequired
+              variant="underlined"
+              name="message"
+              value={data.message}
+              onChange={handleChange}
+              classNames={{
+                input: "bg-transparent",
+                inputWrapper: "bg-transparent",
+              }}
+            />
+            <Button
+              color="primary"
+              type="submit"
+              className="w-min bg-blue-600 text-white mt-3"
+            >
+              Send Message
+            </Button>
+          </form>
         </div>
       </ShineBorder>
       <div className="flex flex-col gap-14 justify-center">
