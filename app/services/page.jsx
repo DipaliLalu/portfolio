@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { Card, CardBody, CardFooter } from "@heroui/card";
 import Image from "next/image";
@@ -6,18 +6,18 @@ import { Tilt } from "react-tilt";
 const data = [
   {
     img: "/resposiveimg.png",
-    title: 'Responsive Web Design',
-    desc: 'Responsive Web Design (RWD) ensures websites adapt seamlessly to different devices, providing an optimal viewing and interaction experience across desktops, laptops, tablets, and smartphones.'
+    title: "Responsive Web Design",
+    desc: "Responsive Web Design (RWD) ensures websites adapt seamlessly to different devices, providing an optimal viewing and interaction experience across desktops, laptops, tablets, and smartphones.",
   },
   {
     img: "/htmlcssimg.jpg",
-    title: 'HTML/CSS Development',
-    desc: 'HTML/CSS Development involves writing code to create the structure and style of websites. Adhering to best practices ensures the resulting websites are functional, accessible, and easy to maintain.'
+    title: "HTML/CSS Development",
+    desc: "HTML/CSS Development involves writing code to create the structure and style of websites. Adhering to best practices ensures the resulting websites are functional, accessible, and easy to maintain.",
   },
   {
     img: "/gitimg.png",
-    title: 'Version Control (Git)',
-    desc: 'Version Control with Git is essential for efficiently tracking changes, managing collaborative workflows, resolving conflicts, and maintaining code quality in software development projects.'
+    title: "Version Control (Git)",
+    desc: "Version Control with Git is essential for efficiently tracking changes, managing collaborative workflows, resolving conflicts, and maintaining code quality in software development projects.",
   },
 ];
 export default function Services() {
@@ -44,7 +44,10 @@ export default function Services() {
             return (
               <Tilt options={defaultOptions} key={value.title}>
                 <Card isPressable shadow="sm" className="">
-                  <ShineBorder className="rounded-lg" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}>
+                  <ShineBorder
+                    className="rounded-lg"
+                    color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+                  >
                     <CardBody className="overflow-hidden p-0">
                       <Image
                         alt={value.title}
@@ -57,17 +60,13 @@ export default function Services() {
                     </CardBody>
                     <CardFooter className="text-small flex flex-col gap-4 items-center justify-center text-center p-4">
                       <p className="font-semibold text-lg">⭐ {value.title}</p>
-                      <p className="text-gray-600">
-                        {value.desc}
-                      </p>
+                      <p className="text-gray-600">{value.desc}</p>
                     </CardFooter>
                   </ShineBorder>
                 </Card>
               </Tilt>
-            )
+            );
           })}
-
-
         </div>
       </div>
     </section>

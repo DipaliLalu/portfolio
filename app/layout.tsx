@@ -1,7 +1,9 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
+
 import { Providers } from "./providers";
+
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
@@ -10,7 +12,7 @@ import { Skills } from "@/app/skills/page";
 import Services from "@/app/services/page";
 import Particlesdemo from "@/app/Particlesdemo";
 import Contact from "@/app/contact/page";
-import Footer from "@/app/footer/page"
+import Footer from "@/app/footer/page";
 
 export const metadata: Metadata = {
   title: {
@@ -34,8 +36,7 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) 
-{
+}) {
   return (
     <html suppressHydrationWarning lang="en">
       <head />
@@ -50,13 +51,13 @@ export default function RootLayout({
             <Navbar />
             <main className="container mx-auto mt-14 h-auto px-6 flex-grow">
               {children}
-              <Particlesdemo/>
+              <Particlesdemo />
             </main>
             <Eduction />
             <Skills />
             <Services />
-            <Contact/>
-            <Footer/>
+            <Contact />
+            <Footer />
           </div>
         </Providers>
       </body>
