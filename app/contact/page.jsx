@@ -7,7 +7,7 @@ import { MdOutlineEmail } from "react-icons/md";
 
 export default function Contact() {
   return (
-    <div className="grid md:grid-cols-2 gap-40 p-16">
+    <section className="flex gap-40 flex-col md:flex-row md:p-5 p-2 lg:gap-40 lg:p-20 md:gap-10" id="contact">
       <ShineBorder
         className="rounded-lg shadow-lg"
         color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
@@ -107,6 +107,6 @@ export default function Contact() {
           </div>
         </ShineBorder>
       </div>
-    </div>
+    </section>
   );
 }
