@@ -15,11 +15,6 @@ export const AnimatedShinyText: FC<AnimatedShinyTextProps> = ({
 }) => {
   return (
     <span
-      style={
-        {
-          "--shiny-width": `${shimmerWidth}px`,
-        } as CSSProperties
-      }
       className={cn(
         "mx-auto max-w-md text-neutral-600/70 dark:text-neutral-400/70",
 
@@ -31,6 +26,11 @@ export const AnimatedShinyText: FC<AnimatedShinyTextProps> = ({
 
         className,
       )}
+      style={
+        {
+          "--shiny-width": `${shimmerWidth}px`,
+        } as CSSProperties
+      }
       {...props}
     >
       {children}

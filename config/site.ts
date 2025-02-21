@@ -49,6 +49,6 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/DipaliLalu",
-   linkedin:"https://www.linkedin.com/in/dipali-lalu/"
+    linkedin: "https://www.linkedin.com/in/dipali-lalu/",
   },
 };
