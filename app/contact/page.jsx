@@ -19,7 +19,7 @@ export default function Contact() {
             the world beautiful.
           </div>
           <div className="jetbrains-mono">
-            We can do so much together. Let's talk.
+            We can do so much together. Let&apos;s talk.
           </div>
           <Input
             label="Full Name"
