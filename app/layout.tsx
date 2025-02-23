@@ -1,9 +1,8 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
-
 import { Providers } from "./providers";
-
+import { Toaster } from "react-hot-toast";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
@@ -39,13 +38,23 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <head />
+      <head>
+      <meta property="og:title" content="Dipali Lalu" />
+        <meta property="og:description" content="Explore the portfolio of a skilled frontend developer specializing in HTML, CSS, JavaScript, Next.js, React.js, Tailwind CSS, NextUI, MUI, Git, and GitHub. Discover innovative web solutions and user-friendly designs." />
+        <meta property="og:url" content="https://dipali-lalu.vercel.app/" />
+        <meta property="og:image" content="https://dipali-lalu.vercel.app/dipali-logo.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="800"/>
+        <meta property="og:image:alt" content="Creative Frontend Developer Portfolio"/>
+        <meta property="og:type" content="website"/>
+      </head>
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable,
         )}
       >
+        <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col gap-20 overflow-hidden">
             <Navbar />
