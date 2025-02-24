@@ -21,7 +21,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 export const Navbar = () => {
   return (
     <HeroUINavbar shouldHideOnScroll maxWidth="xl" position="sticky">
-      <NavbarContent className="basis-1/5 sm:basis-full mt-8">
+      <NavbarContent className="basis-1/5 sm:basis-full pt-8">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="">
             <p className="font-bold text-inherit pacifico-regular text-3xl">
@@ -57,11 +57,12 @@ export const Navbar = () => {
             <ThemeSwitch />
           </NavbarItem>
           <NavbarItem className="hidden lg:flex">
-            <Button className="text-sm font-normal text-white bg-pink-600">
+            <Button className="text-sm font-normal bg-pink-600">
               <Link
                 href={siteConfig.links.linkedin}
                 rel="noopener noreferrer"
                 target="_blank"
+                className="text-white"
               >
                 Hire me
               </Link>
@@ -70,14 +71,15 @@ export const Navbar = () => {
         </NavbarContent>
       </NavbarContent>
 
-      <NavbarContent className="lg:hidden basis-1 pl-4" justify="end">
+      <NavbarContent className="lg:hidden basis-1 pl-4 pt-8" justify="end">
         <ThemeSwitch />
         <NavbarItem>
-          <Button className="text-sm font-normal text-white bg-pink-600">
+          <Button className="text-sm font-normal bg-pink-600">
             <Link
               href={siteConfig.links.linkedin}
               rel="noopener noreferrer"
               target="_blank"
+              className="text-white"
             >
               Hire me
             </Link>
