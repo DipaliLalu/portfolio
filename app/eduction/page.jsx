@@ -17,19 +17,19 @@ export default function Eduction() {
     {
       year: "2021-2024",
       course: "Bachelor of Computer Applications",
-      name: "Bhakta Kavi Narsinh Mehta University (BKNMU)",
+      name: "Bhakta Kavi Narsinh Mehta University",
     },
   ];
   const Cards = ({ year, course, name }) => {
     return (
-      <Card className="md:min-w-[450px] w-full p-3 bg-transparent border-none">
+      <Card className="min-w-[450px] p-3 bg-transparent border-none">
         <ShineBorder
           className="rounded-lg w-full"
           color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
           <CardBody>
             <div className="flex flex-col gap-3">
-              <p className="text-md border shadow rounded-lg p-2 w-1/3">
+              <p className="text-md border shadow rounded-lg p-2 px-5 w-max">
                 {year}
               </p>
               <p className="font-bold text-default-500 ">{course}</p>

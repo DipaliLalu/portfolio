@@ -115,10 +115,10 @@ export default function Contact() {
       </ShineBorder>
       <div className="flex flex-col gap-14 justify-center">
         <ShineBorder
-          className="rounded-lg shadow-lg"
+          className="rounded-lg shadow-lg place-items-start"
           color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
-          <div className="flex gap-5">
+          <div className="flex gap-5 ps-5">
             <div className="rounded-full border p-4">
               <FaPhoneAlt size={33} />
             </div>
@@ -128,11 +128,12 @@ export default function Contact() {
             </div>
           </div>
         </ShineBorder>
+
         <ShineBorder
-          className="rounded-lg shadow-lg"
+          className="rounded-lg shadow-lg place-items-start"
           color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
-          <div className="flex gap-5">
+          <div className="flex gap-5 ps-5">
             <div className="rounded-full border p-4">
               <MdOutlineEmail size={33} />
             </div>
@@ -143,6 +144,21 @@ export default function Contact() {
           </div>
         </ShineBorder>
         <ShineBorder
+          className="rounded-lg shadow-lg place-items-start"
+          color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+        >
+          <div className="flex gap-5 ps-5">
+            <div className="rounded-full border p-4">
+              <FaLocationDot size={33} />
+            </div>
+            <div>
+              <div className="font-bold text-2xl">Address</div>
+              <div className="text-gray-400">Junagadh</div>
+            </div>
+          </div>
+        </ShineBorder>
+
+        {/* <ShineBorder
           className="rounded-lg shadow-lg"
           color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         >
@@ -155,7 +171,7 @@ export default function Contact() {
               <div className="text-gray-400">Junagadh</div>
             </div>
           </div>
-        </ShineBorder>
+        </ShineBorder> */}
       </div>
     </section>
   );

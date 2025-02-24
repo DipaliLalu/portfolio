@@ -35,7 +35,7 @@ export default function Home() {
             className: "font-bold h-20",
           })}
         >
-          <TypingAnimation className="text-6xl tracking-normal ">
+          <TypingAnimation className="sm:text-6xl tracking-normal ">
             Dipali Lalu
           </TypingAnimation>
         </span>
