@@ -12,6 +12,7 @@ import Services from "@/app/services/page";
 import Particlesdemo from "@/app/Particlesdemo";
 import Contact from "@/app/contact/page";
 import Footer from "@/app/footer/page";
+import {Experience} from "@/app/experience/page"
 
 export const metadata: Metadata = {
   title: {
@@ -39,14 +40,14 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <head>
-      <meta property="og:title" content="Dipali Lalu" />
+        <meta property="og:title" content="Dipali Lalu" />
         <meta property="og:description" content="Explore the portfolio of a skilled frontend developer specializing in HTML, CSS, JavaScript, Next.js, React.js, Tailwind CSS, NextUI, MUI, Git, and GitHub. Discover innovative web solutions and user-friendly designs." />
         <meta property="og:url" content="https://dipali-lalu.vercel.app/" />
         <meta property="og:image" content="https://dipali-lalu.vercel.app/dipali-logo.png" />
         <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="800"/>
-        <meta property="og:image:alt" content="Creative Frontend Developer Portfolio"/>
-        <meta property="og:type" content="website"/>
+        <meta property="og:image:height" content="800" />
+        <meta property="og:image:alt" content="Creative Frontend Developer Portfolio" />
+        <meta property="og:type" content="website" />
       </head>
       <body
         className={clsx(
@@ -56,13 +57,16 @@ export default function RootLayout({
       >
         <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+            <div className="sticky top-0 z-50">
+              <Navbar />
+            </div>
           <div className="relative flex flex-col gap-20 overflow-hidden">
-            <Navbar />
             <main className="container mx-auto mt-14 h-auto px-6 flex-grow">
               {children}
               <Particlesdemo />
             </main>
             <Eduction />
+            <Experience />
             <Skills />
             <Services />
             <Contact />

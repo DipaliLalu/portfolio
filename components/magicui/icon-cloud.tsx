@@ -47,12 +47,10 @@ export function IconCloud({ icons, images }: IconCloudProps) {
     if (!icons && !images) return;
 
     const items = icons || images || [];
-
     imagesLoadedRef.current = new Array(items.length).fill(false);
 
     const newIconCanvases = items.map((item, index) => {
       const offscreen = document.createElement("canvas");
-
       offscreen.width = 40;
       offscreen.height = 40;
       const offCtx = offscreen.getContext("2d");
@@ -61,7 +59,6 @@ export function IconCloud({ icons, images }: IconCloudProps) {
         if (images) {
           // Handle image URLs directly
           const img = new Image();
-
           img.crossOrigin = "anonymous";
           img.src = items[index] as string;
           img.onload = () => {
@@ -83,7 +80,6 @@ export function IconCloud({ icons, images }: IconCloudProps) {
           offCtx.scale(0.4, 0.4);
           const svgString = renderToString(item as React.ReactElement);
           const img = new Image();
-
           img.src = "data:image/svg+xml;base64," + btoa(svgString);
           img.onload = () => {
             offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
@@ -92,7 +88,6 @@ export function IconCloud({ icons, images }: IconCloudProps) {
           };
         }
       }
-
       return offscreen;
     });
 
@@ -118,11 +113,11 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       const z = Math.sin(phi) * r;
 
       newIcons.push({
-        x: x * 100,
-        y: y * 100,
-        z: z * 100,
-        scale: 1,
-        opacity: 1,
+        x: x * 160,
+        y: y * 150,
+        z: z * 160,
+        scale: 5,
+        opacity: 2,
         id: i,
       });
     }
@@ -132,14 +127,12 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   // Handle mouse events
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const rect = canvasRef.current?.getBoundingClientRect();
-
     if (!rect || !canvasRef.current) return;
 
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
     const ctx = canvasRef.current.getContext("2d");
-
     if (!ctx) return;
 
     iconPositions.forEach((icon) => {
@@ -184,7 +177,6 @@ export function IconCloud({ icons, images }: IconCloudProps) {
           startTime: performance.now(),
           duration,
         });
-
         return;
       }
     });
@@ -195,11 +187,9 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const rect = canvasRef.current?.getBoundingClientRect();
-
     if (rect) {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-
       setMousePos({ x, y });
     }
 
@@ -224,7 +214,6 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
-
     if (!canvas || !ctx) return;
 
     const animate = () => {
@@ -289,7 +278,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
             iconCanvasesRef.current[index] &&
             imagesLoadedRef.current[index]
           ) {
-            ctx.drawImage(iconCanvasesRef.current[index], -20, -20, 40, 40);
+            ctx.drawImage(iconCanvasesRef.current[index], -43, -43, 60, 60);
           }
         } else {
           // Show numbered circles if no icons/images are provided
@@ -321,15 +310,15 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   return (
     <canvas
       ref={canvasRef}
-      aria-label="Interactive 3D Icon Cloud"
-      className="rounded-lg"
-      height={600}
-      role="img"
-      width={600}
+      width={1300}
+      height={400}
       onMouseDown={handleMouseDown}
-      onMouseLeave={handleMouseUp}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      className="rounded-lg"
+      aria-label="Interactive 3D Icon Cloud"
+      role="img"
     />
   );
 }
