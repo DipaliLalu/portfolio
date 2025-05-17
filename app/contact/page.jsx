@@ -47,11 +47,7 @@ export default function Contact() {
 
   return (
     <section className="flex gap-40 flex-col md:flex-row md:p-5 p-2 lg:gap-40 lg:p-20 md:gap-10" id="contact">
-      <ShineBorder
-        className="rounded-lg shadow-lg"
-        color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-      >
-        <div className="flex flex-col gap-8  box-border w-full p-5">
+        <div className="flex flex-col gap-8  box-border w-full p-5 border-2 rounded-lg shadow-lg">
           <h2 className="text-5xl bold jetbrains-mono">Get in touch</h2>
           <div className="jetbrains-mono">
             I enjoy working with dedicated creatives from businesses that make
@@ -112,13 +108,10 @@ export default function Contact() {
             </Button>
           </form>
         </div>
-      </ShineBorder>
+      
       <div className="flex flex-col gap-14 justify-center">
-        <ShineBorder
-          className="rounded-lg shadow-lg place-items-start"
-          color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-        >
-          <div className="flex gap-5 ps-5">
+
+          <div className="flex gap-5 border-2 rounded-lg shadow-lg p-5 ">
             <div className="rounded-full border p-4">
               <FaPhoneAlt size={33} />
             </div>
@@ -127,13 +120,8 @@ export default function Contact() {
               <div className="text-gray-400">(+91) 701 6861 135</div>
             </div>
           </div>
-        </ShineBorder>
 
-        <ShineBorder
-          className="rounded-lg shadow-lg place-items-start"
-          color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-        >
-          <div className="flex gap-5 ps-5">
+          <div className="flex gap-5 border-2 rounded-lg shadow-lg p-5">
             <div className="rounded-full border p-4">
               <MdOutlineEmail size={33} />
             </div>
@@ -142,12 +130,8 @@ export default function Contact() {
               <div className="text-gray-400">dvlalu7@gmail.com</div>
             </div>
           </div>
-        </ShineBorder>
-        <ShineBorder
-          className="rounded-lg shadow-lg place-items-start"
-          color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-        >
-          <div className="flex gap-5 ps-5">
+       
+          <div className="flex gap-5 border-2 rounded-lg shadow-lg p-5">
             <div className="rounded-full border p-4">
               <FaLocationDot size={33} />
             </div>
@@ -156,7 +140,7 @@ export default function Contact() {
               <div className="text-gray-400">Junagadh</div>
             </div>
           </div>
-        </ShineBorder>
+       
 
         {/* <ShineBorder
           className="rounded-lg shadow-lg"
